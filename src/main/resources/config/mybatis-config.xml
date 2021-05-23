@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<!-- mybatis的主配置文件 --> 
+<configuration>  
+	 <properties>  
+	  		<!-- 启动命名空间机制 -->
+	    	<property name="useStatementNamespaces" value="true" />  
+	 </properties>  
+	 
+	 <settings>
+	        <!-- 控制台打印查询语句 -->
+	        <setting name="logImpl" value="STDOUT_LOGGING" />
+	 </settings>
+</configuration>

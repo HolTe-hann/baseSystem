@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: baseSystem
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: admin
+Implementation-Vendor-Id: com.project.base.systemManage
+Build-Jdk: 1.8.0_152
+Implementation-URL: http://projects.spring.io/spring-boot/baseSystem/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
