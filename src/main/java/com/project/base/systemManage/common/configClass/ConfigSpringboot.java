@@ -36,8 +36,7 @@ public class ConfigSpringboot {
     
     private final ServerProperties serverProperties;
 
-    public ConfigSpringboot(
-            ServerProperties serverProperties) {
+    public ConfigSpringboot(ServerProperties serverProperties) {
         this.serverProperties = serverProperties;
     }
 
