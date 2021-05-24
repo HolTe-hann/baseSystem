@@ -51,6 +51,7 @@ public abstract  class BaseEntity implements Serializable{
 		
 	// 备注
 	private String remark;
+	
 
 	public String getBelongOrganId() {
 		return belongOrganId;
