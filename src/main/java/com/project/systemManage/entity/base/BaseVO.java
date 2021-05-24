@@ -11,7 +11,7 @@ import java.util.Date;
  * @date 2018年1月28日  
  *
  */
-public abstract  class BaseEntity implements Serializable{
+public abstract  class BaseVO implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
