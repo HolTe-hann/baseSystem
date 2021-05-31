@@ -23,10 +23,10 @@ public abstract  class BaseVO implements Serializable{
     private String belongOrganName;	
 
 	//创建时间
-	private Date createT;
+	private Date createTime;
 	
 	//修改时间
-	private Date updateT;
+	private Date updateTime;
 	
 	//是否可用N表示不可用，Y表示可用
 	private String enable="Y";
@@ -35,7 +35,7 @@ public abstract  class BaseVO implements Serializable{
 	 * Y表示系统，用户不可以删除系统数据
 	 * N表示非系统数据
     */
-	private String systemData="Y";
+	private String systemSign ="Y";
     
     //创建人
 	private String creatorId;
@@ -51,7 +51,6 @@ public abstract  class BaseVO implements Serializable{
 		
 	// 备注
 	private String remark;
-	
 
 	public String getBelongOrganId() {
 		return belongOrganId;
@@ -69,20 +68,20 @@ public abstract  class BaseVO implements Serializable{
 		this.belongOrganName = belongOrganName;
 	}
 
-	public Date getCreateT() {
-		return createT;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreateT(Date createT) {
-		this.createT = createT;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
-	public Date getUpdateT() {
-		return updateT;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
 
-	public void setUpdateT(Date updateT) {
-		this.updateT = updateT;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	public String getEnable() {
@@ -93,12 +92,12 @@ public abstract  class BaseVO implements Serializable{
 		this.enable = enable;
 	}
 
-	public String getSystemData() {
-		return systemData;
+	public String getSystemSign() {
+		return systemSign;
 	}
 
-	public void setSystemData(String systemData) {
-		this.systemData = systemData;
+	public void setSystemSign(String systemSign) {
+		this.systemSign = systemSign;
 	}
 
 	public String getCreatorId() {
@@ -140,12 +139,6 @@ public abstract  class BaseVO implements Serializable{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-
-	
-	
 	
 
-	
-	
-	
 }

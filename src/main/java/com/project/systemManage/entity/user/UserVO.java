@@ -15,6 +15,9 @@ public class UserVO extends BaseVO{
 	
 	private static final long serialVersionUID = 1L;
 	
+	//用户ID
+	private String userId;
+		
 	//用户名称(登录名称)
 	private String name;
 		

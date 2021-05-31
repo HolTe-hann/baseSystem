@@ -9,12 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.AbstractErrorController;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorProperties;
 import org.springframework.boot.autoconfigure.web.ErrorViewResolver;
-import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -31,10 +29,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("${server.error.path:${error.path:/error}}")
 public class MyBasicErrorController extends AbstractErrorController {
     private final ErrorProperties errorProperties;
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyBasicErrorController.class);
-    
-    @Autowired
-    private ApplicationContext applicationContext;
+    private static final Logger logger = LoggerFactory.getLogger(MyBasicErrorController.class);
+   
 
     /**
      * Create a new {@link org.springframework.boot.autoconfigure.web.BasicErrorController} instance.
