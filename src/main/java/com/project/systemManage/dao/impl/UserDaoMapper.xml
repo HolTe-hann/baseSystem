@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.project.systemManage.dao.api.UserDaoApi" >
+  <resultMap id="QueryUserMap" type="com.project.systemManage.entity.user.UserVO" >
+  	<id column="user_id" property="userId" jdbcType="VARCHAR" />
+  	<id column="name" property="name" jdbcType="VARCHAR" />
+  	<id column="true_name" property="trueName" jdbcType="VARCHAR" />
+  	<id column="login_date_time" property="loginDateTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+  	<id column="belong_organ_name" property="belongOrganName" jdbcType="VARCHAR" />
+  	<id column="enable" property="enable" jdbcType="VARCHAR" />
+  	<id column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="queryUserByPage" resultMap="QueryUserMap">
+  	select 
+  	name,true_name,user_id,login_date_time,belong_organ_name,belong_organ_id,enable,remark
+  	from sys_user
+    limit #{pageVO.startNum},#{pageVO.endNum}
+  </select>
+  
+</mapper>  	
