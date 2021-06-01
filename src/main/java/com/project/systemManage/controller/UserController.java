@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.systemManage.entity.base.ResponseVO;
 import com.project.systemManage.entity.page.PageVO;
 import com.project.systemManage.entity.user.UserVO;
 import com.project.systemManage.service.api.UserServiceApi;
@@ -30,10 +31,18 @@ public class UserController {
 	@Autowired
 	UserServiceApi userServiceApi;
 	
+	/**
+	 * 
+	 * @Title: queryUserByPage  
+	 * @Description: TODO(分页查询用户)  
+	 * @param @param userVO
+	 * @param @param pageVO
+	 * @param @return    参数  
+	 * @return ResponseVO<List<UserVO>>    返回类型  
+	 * @throws
+	 */
 	@RequestMapping("/queryUserByPage")
-    public List<UserVO> queryUserByPage(UserVO userVO,PageVO pageVO){
-		int count = userServiceApi.queryUserByPageCount(pageVO,userVO);
-		pageVO.init(count);
+    public ResponseVO<List<UserVO>> queryUserByPage(UserVO userVO,PageVO pageVO){
 		
 		return userServiceApi.queryUserByPage(pageVO,userVO);
     }

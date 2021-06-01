@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.project.systemManage.common.exceptionHandler.MyBasicErrorController;
+import com.project.systemManage.common.exceptionHandler.CustomExceptionController;
 
 /**
  * ClassName: ConfigSpringboot
@@ -52,8 +52,8 @@ public class ConfigSpringboot {
      * @return
      */
     @Bean
-    public MyBasicErrorController basicErrorController(ErrorAttributes errorAttributes) {
-        return new MyBasicErrorController(errorAttributes, this.serverProperties.getError(),
+    public CustomExceptionController basicErrorController(ErrorAttributes errorAttributes) {
+        return new CustomExceptionController(errorAttributes, this.serverProperties.getError(),
                 this.errorViewResolvers);
     }
 

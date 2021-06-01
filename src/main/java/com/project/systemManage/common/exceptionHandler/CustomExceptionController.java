@@ -27,9 +27,9 @@ import org.springframework.web.servlet.ModelAndView;
  * Springboot的异常处理，需要注释掉@Controller，因为它没有无参数构造函数，被扫描到会报错
  */
 @RequestMapping("${server.error.path:${error.path:/error}}")
-public class MyBasicErrorController extends AbstractErrorController {
+public class CustomExceptionController extends AbstractErrorController {
     private final ErrorProperties errorProperties;
-    private static final Logger logger = LoggerFactory.getLogger(MyBasicErrorController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CustomExceptionController.class);
    
 
     /**
@@ -38,7 +38,7 @@ public class MyBasicErrorController extends AbstractErrorController {
      * @param errorAttributes the error attributes
      * @param errorProperties configuration properties
      */
-    public MyBasicErrorController(ErrorAttributes errorAttributes,
+    public CustomExceptionController(ErrorAttributes errorAttributes,
                                   ErrorProperties errorProperties) {
         this(errorAttributes, errorProperties,
                 Collections.<ErrorViewResolver>emptyList());
@@ -51,7 +51,7 @@ public class MyBasicErrorController extends AbstractErrorController {
      * @param errorProperties    configuration properties
      * @param errorViewResolvers error view resolvers
      */
-    public MyBasicErrorController(ErrorAttributes errorAttributes,
+    public CustomExceptionController(ErrorAttributes errorAttributes,
                                   ErrorProperties errorProperties, List<ErrorViewResolver> errorViewResolvers) {
         super(errorAttributes, errorViewResolvers);
         Assert.notNull(errorProperties, "ErrorProperties must not be null");

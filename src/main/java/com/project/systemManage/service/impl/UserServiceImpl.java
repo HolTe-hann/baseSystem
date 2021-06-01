@@ -3,8 +3,10 @@ package com.project.systemManage.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.project.systemManage.dao.api.UserDaoApi;
+import com.project.systemManage.entity.base.ResponseVO;
 import com.project.systemManage.entity.page.PageVO;
 import com.project.systemManage.entity.user.UserVO;
 import com.project.systemManage.service.api.UserServiceApi;
@@ -16,19 +18,23 @@ import com.project.systemManage.service.api.UserServiceApi;
  * @date 2018年2月4日  
  *
  */
+@Service
 public class UserServiceImpl implements UserServiceApi {
 
 	@Autowired
 	UserDaoApi userDaoApi;
 	
-	public List<UserVO> queryUserByPage(PageVO pageVO,UserVO userVO) {
+	public ResponseVO<List<UserVO>> queryUserByPage(PageVO pageVO,UserVO userVO) {
+		int count = userDaoApi.queryUserByPageCount(pageVO,userVO);
+		pageVO.init(count);
+		
 		List<UserVO> userList=userDaoApi.queryUserByPage(pageVO,userVO);
-		return userList;
+		
+		ResponseVO<List<UserVO>> responseVO=new ResponseVO<List<UserVO>>();
+		responseVO.setReturnData(userList);
+		return responseVO;
 	}
-	
-	public int queryUserByPageCount(PageVO pageVO,UserVO userVO){
-		return userDaoApi.queryUserByPageCount(pageVO, userVO);
-	}
+
 
 	
 	
