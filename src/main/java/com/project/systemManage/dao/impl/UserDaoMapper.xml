@@ -13,8 +13,15 @@
   
   <select id="queryUserByPage" resultMap="QueryUserMap">
   	select 
-  	name,true_name,user_id,login_date_time,belong_organ_name,belong_organ_id,enable,remark
-  	from sys_user
+  	u.name,u.true_name,u.user_id,u.login_date_time,u.belong_organ_name,u.belong_organ_id,u.enable,u.remark
+  	from sys_user u
+    limit #{pageVO.startNum},#{pageVO.endNum}
+  </select>
+  
+  <select id="queryUserByPageCount" resultType="int">
+  	select 
+  	count(u.user_id)
+  	from sys_user u
     limit #{pageVO.startNum},#{pageVO.endNum}
   </select>
   

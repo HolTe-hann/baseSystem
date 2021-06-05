@@ -5,11 +5,11 @@ public class PageVO {
 	   private int   intRowCount=0;   //记录总数       
 	   private int   intPageCount=0;  //总页数       
 	   private int   intCurrentPage=1;  //当前显示页码
-	   private int   startNum=1;    //每页的起始记录
+	   private int   startNum=0;    //每页的起始记录(mysql的limit n,m的起始位置是从0开始的)
 	   private int   endNum=1;      //每页的结束记录
 	   private boolean ajaxPage=false;    //是否是ajax分页
 
-	//初始化方法三个参数分别是：记录总数，一页显示的记录数，待显示页码(不带查询条件的调用此方法初始化)
+	   	//初始化方法三个参数分别是：记录总数，一页显示的记录数，待显示页码(不带查询条件的调用此方法初始化)
 	    public void init(int rcount,int psize,int cPage){
 	        intRowCount = rcount;
 	        intPageSize = psize;
@@ -26,8 +26,8 @@ public class PageVO {
 	        }
 
 	        //计算每页的起始记录和结尾记录
-	        startNum=(intCurrentPage-1)*intPageSize+1;
-	        endNum=startNum+intPageSize-1;
+	        startNum=(intCurrentPage-1)*intPageSize;
+	        endNum=startNum+intPageSize;
 	        if(endNum>intRowCount)
 	        	endNum=intRowCount;
 	         
@@ -48,8 +48,8 @@ public class PageVO {
 	        }
 
 	        //计算每页的起始记录和结尾记录
-	        startNum=(intCurrentPage-1)*intPageSize+1;
-	        endNum=startNum+intPageSize-1;
+	        startNum=(intCurrentPage-1)*intPageSize;
+	        endNum=startNum+intPageSize;
 	        if(endNum>intRowCount)
 	        	endNum=intRowCount;
 	         
